@@ -1,3 +1,18 @@
+macOS Installation:
+  brew install git (Installs Git using the Homebrew package manager (recommended for Mac) [1]).
+  git --version (Prompts macOS to trigger the automatic installation of Apple Command Line Developer Tools if Git is missing).
+  
+Linux Installation:
+    sudo apt-get update && sudo apt-get install git (Updates packages and installs Git on Ubuntu, Debian, Mint, and Pop!_OS [1]).
+    sudo dnf install git (Installs Git on Fedora, Red Hat Enterprise Linux (RHEL), and CentOS [1]).
+    sudo pacman -S git (Installs Git on Arch Linux and Manjaro.sudo zypper install git — Installs Git on OpenSUSE).
+    
+Windows alternative (via Winget):
+    While Windows users typically use the graphical installer from the official website [1], you can install it via the command prompt using this command:
+        winget install --id Git.Git -e --source winget 
+        (Downloads and runs the official Git for Windows installer directly from your terminal).
+
+
 1. What is Git?  
    At its core, Git is a Distributed Version Control System (DVCS).
 
@@ -100,3 +115,68 @@ The Complete First-Time Setup Sequence
 
 8.Download/Clone an existing online project:
    git clone https://github.com/username/repository-name.git
+
+
+
+
+Repository Initialization:
+   command:
+    git init (Initializes a brand new local Git repository inside your current folder).
+    git clone <url> — Downloads an existing repository and its entire history from a remote server.
+    
+Tracking & Staging Changes:
+   command:
+    git status (Displays modified, staged, or untracked files in your active workspace).
+    git add <file> (Stages a specific file, preparing it for your next snapshot).
+    git add . (Stages all new, modified, and deleted files in the current folder).
+    git commit -m "message" (Saves all currently staged changes to your permanent local history).
+
+Inspection & History Logs:
+  command:
+   git log (Shows the full, chronological commit history with author and date metadata).
+   git log --oneline ( Compresses the history timeline into clean, single-line entries).
+   git log --oneline --graph --all (Displays a visual tree structure of all branches and merges).
+   git diff (Shows line-by-line code changes made to files that have not yet been staged).
+   git diff --staged (Shows line-by-line changes for files that are already staged).
+
+Branching Operations:
+  command:
+   git branch (Lists all local branches (the active branch is marked with an asterisk *)).
+   git branch -a (Lists all local and remote-tracking branches available).
+   git branch <name> (Creates a new branch pointer referencing your current commit).
+   git switch <name> (Switches your working context to the targeted branch).
+   git switch -c <name> (Creates a brand new branch and switches to it instantly).
+   git branch -d <name> (Deletes a branch that has already been safely merged).
+   git branch -D <name> (Forces the deletion of an unmerged branch, discarding its changes).
+
+Merging, Rebasing, & Syncing:
+  command:
+    git merge <name> (Integrates changes from the targeted branch into your active branch).
+    git rebase <branch> (Re-applies your current branch's commits on top of another branch tip).
+    git cherry-pick <hash> (Copies a single specific commit from any branch onto your current branch).
+    git remote add origin <url> (Links your local repository to a remote server like GitHub).
+    git remote -v  (Displays the remote URLs currently connected to your local workspace).
+    git remote set-url origin <url> (Replaces an existing remote server URL with a new one).
+    git push -u origin <branch> (Uploads local commits to a remote server and sets upstream tracking).
+    git push (Uploads subsequent local commits once upstream tracking is already configured)
+    git fetch (Downloads tracking updates from the remote server without altering your local files).
+    git pull (Downloads and immediately integrates remote updates into your active branch files).
+
+Stashing (Temporary Storage):
+  command:
+   git stash (Temporarily clears your working modifications and saves them on an internal clipboard).
+   git stash -u (Stashes your current modifications along with any brand new, untracked files).
+   git stash list (Displays all saved stashes in your current project repository).
+   git stash pop (Restores your most recently stashed code changes and removes them from the clipboard).
+   git stash apply (Restores stashed changes but keeps a copy saved in your clipboard history).
+   git stash drop <id> (Permanently deletes a specific stash identifier from your history tracker).
+
+Error Fixing & Undo Operations:
+   command:
+    git restore --staged <file> (Unstages a file, moving it back out of your staging area).
+    git commit --amend -m "msg" (Modifies your very last commit message or updates it with newly staged files).
+    git reset --soft HEAD~1  (Undoes your last commit while keeping your code files completely staged).
+    git reset (Clears your staging area completely without modifying any of your source code files).
+    git reset --hard HEAD~1 (Permanently destroys your last commit and all changes made in it).
+
+
