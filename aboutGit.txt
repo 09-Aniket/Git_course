@@ -1,0 +1,102 @@
+1. What is Git?  
+   At its core, Git is a Distributed Version Control System (DVCS).
+
+   Version Control System: It keeps track of the history of your files. If you break your code, you can roll it back to a time when it worked perfectly.
+
+   Distributed: Every developer has a full copy of the entire project history on their local machine, not just a central server. If the main server goes down, any developer's local repository can be used to restore it.
+
+2.Git vs. GitHub
+  Git is the actual software/tool that runs locally on your computer to track changes.
+
+  GitHub (or GitLab, Bitbucket) is a cloud-based hosting service that stores your Git repositories online so you can share and collaborate with others.
+
+3.The Three Stages of Git
+  When you modify files, they pass through three distinct areas before being safely recorded in your history:
+
+    1.Working Directory: The actual files you are currently editing on your computer.
+
+    2.Staging Area (Index): A preparation zone. You choose which specific changes you want to include in your next snapshot.
+
+    3.Local Repository: The .git folder where Git permanently saves the snapshots (commits) of your project.
+
+4. Setting Up Git
+    Before you start tracking files, you need to configure your identity so your commits are properly credited to you.
+
+    1.Configure your name: git config --global user.name "Your Name"
+    2.Configure your email: git config --global user.email "your.email@example.com"
+
+    3.Initialize a new local repository: git init (Run this inside your project folder to start tracking it with Git)
+
+    4. Tracking Changes (The Core Workflow)
+        Working Directory  ──( git add )──>  Staging Area  ──( git commit )──>  Local Repo
+
+    5.Check repository status: git status (See which files are modified, untracked, or staged)
+
+    6.Stage a specific file: git add filename.txt (Moves a file from the Working Directory to the Staging Area)
+    or
+    Stage all changes:git add . (Stages every modified and new file in the current directory)
+
+    7.Commit your changes: git commit -m "Your descriptive commit message here" (Permanently saves your staged snapshot into your local history)
+    The -m flag stands for message.
+    Why Use -m?
+    Saves time: You write the message directly in your terminal.
+    Avoids editors: You do not get trapped in command-line editors like Vim or Nano.
+    Streamlines workflow: Ideal for quick, one-line summaries of your code changes.
+
+5. Reviewing History and Differences
+  Tools to help you see what has changed over time.
+    1.View commit history: git log (Shows a list of all past commits, authors, and dates)
+    2.View a compact commit history:git log --oneline (Condenses the history to one line per commit)
+
+    3.View unstaged changes: git diff (Shows the exact line-by-line differences between your working directory and your last commit)
+
+6.Undoing Mistakes
+  If you make a mistake before permanently committing it, use these to back up.
+
+  1.Unstage a file: git reset filename.txt (Removes a file from the Staging Area back to the Working Directory, keeping your changes intact)
+  2.Discard local changes in a file: git checkout -- filename.txt (Wipes away changes made to a file since the last commit—use carefully!)
+
+7.Working with Remote Repositories (e.g., GitHub)
+ Commands used to sync your local code with an online platform.
+   1.Link a local repo to a remote server:
+      git remote add origin https://github.com/username/repository-name.git
+        
+        git remote add: Tells Git you want to track a new external repository.
+        origin: The default nickname Git uses for your primary central server.
+        https://...: The exact internet address where your online backup lives.
+
+    2.Rename your main branch (Recommended standard): git branch -M main
+   
+   2.Push changes for the first time: (Sends your local commits to the online server and sets the default tracking branch)
+         git push -u origin main
+
+    git push: Copies your local repository commits to the remote server.
+    -u: Sets the upstream tracking link. This links your local main branch to the remote main branch permanently.
+    origin: The nickname of the remote server you connected in the previous step.
+    main: The name of the specific branch you are uploading.
+
+    Why the -u Flag Matters:
+      You only need to use the -u flag the very first time you push this branch.
+      Because Git now remembers this link, every future update requires you to type just two words: git push
+
+The Complete First-Time Setup Sequence
+    # 1. Initialize a brand new local Git repository
+    git init
+
+    # 2. Stage all your project files for tracking
+    git add .
+
+    # 3. Save your staged files locally with a descriptive message (-m)
+    git commit -m "Initial commit"
+
+    # 4. Ensure your default branch is named 'main'
+    git branch -M main
+
+    # 5. Link your local project to your online GitHub repository
+    git remote add origin https://github.com
+
+    # 6. Upload your code online and set the upstream link (-u)
+    git push -u origin main
+
+8.Download/Clone an existing online project:
+   git clone https://github.com/username/repository-name.git

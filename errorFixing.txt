@@ -1,0 +1,21 @@
+Fixing Local Commit Mistakes
+  1.Undo git add (Unstage a file) 
+    If you accidentally staged a file you didn’t mean to commit yet: git restore --staged <file_name>
+
+  2.Fix the Last Commit Message
+    If you noticed a typo in your last commit message right after hitting enter:
+        git commit --amend -m "Your corrected commit message"
+
+  3.Undo the Last Commit (Keep your code changes)
+      If you committed too early, this deletes the commit but keeps all your code edits as unstaged files:
+         git reset --soft HEAD~1
+
+        git reset: Moves the current branch pointer to a specific point in history.
+        --soft: Tells Git not to touch your files. Your code changes remain safe and sound in your staging area (green status)
+        .HEAD~1: Refers to exactly one commit before your current position.
+
+        When Should You Use This?
+          Use this command when you realize you made a mistake immediately after committing, such as:
+           1.You forgot to include a file in the commit.
+           2.You accidentally committed to the wrong branch.
+           3.You want to rewrite the commit message or split the changes into multiple smaller commits.
