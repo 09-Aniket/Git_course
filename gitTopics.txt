@@ -1,0 +1,36 @@
+1. The Core Foundation (Local Basics)
+These are the daily commands you use to track files on your own computer.
+  The 3 Git States: 
+     Working Directory (modified files), 
+     Staging Area (staged files), and Commit History (saved snapshots).
+     Repository Initialization: Creating a new repository (git init) or cloning an existing one (git clone).Tracking Changes: Checking file statuses (git status), staging edits (git add), and saving snapshots (git commit).
+     Viewing History: Inspecting logs (git log), short logs (--oneline), and line-by-line differences (git diff).
+2. Branching & Merging (Feature Management)
+   This is how you isolate your work so you do not break the main working application.
+   Branch Isolation: Creating, listing, and switching between branches (git branch, git checkout, git switch).Merging Strategies: Fast-forward merges vs. Three-way merges (git merge).
+   Merge Conflicts: Identifying, manually editing, and resolving conflicting lines of code when two branches modify the same file.
+   Rebasing: Rewriting history by moving a base branch to a new starting commit (git rebase).
+
+3. Remote Collaboration (Working with GitHub/GitLab)
+   These concepts cover how you sync code with a team using cloud hosting platforms.
+   Remote Management: Linking local projects to external servers (git remote add).
+   Sharing Code: Uploading local commits to the cloud (git push).
+   Fetching Updates: Downloading remote changes without merging them (git fetch).
+   Syncing Code: Downloading and immediately merging remote updates into your local files (git pull).
+
+4. Rewriting History & Undoing Mistakes
+  The tools you use when things go wrong or when you want to clean up your commit logs.
+  Undoing Local Work: Unstaging files (git restore) or discarding uncommitted edits.
+  Resetting: Moving your branch backward in time using --soft, --mixed, or --hard modes (git reset).Reverting: Creating a brand new commit that safely opposites a previous mistake without destroying history (git revert).
+  Amending: Modifying the exact last commit message or adding forgotten files (git commit --amend).Cherry-Picking: Copying a single specific commit from one branch and applying it to another (git cherry-pick).
+
+5. Advanced Workflow Tools
+  Features used to manage complex project states or large team workflows.
+  Stashing: Temporarily shelving incomplete work to clear your workspace (git stash).
+  Tagging: Marking specific important points in history, like release versions (e.g., v1.0.0) (git tag).Blame & Bisect: Finding out exactly who changed a specific line of code (git blame) or binary searching history to find which commit introduced a bug (git bisect).
+  Submodules: Keeping a separate Git repository embedded inside your main Git repository.
+
+6.Industry Git Workflows
+  The structural strategies teams use to coordinate production deployments.
+    GitFlow: A strict branching model using master, develop, feature, release, and hotfix branches.
+    GitHub Flow / Trunk-Based Development: A lightweight workflow centered around short-lived feature branches and frequent merges directly into the main branch via Pull Requests (PRs).
